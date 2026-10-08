@@ -9,8 +9,21 @@ Skill content served by [hr-skills](https://github.com/cymkd-simakovicveljko/hr-
 
 ## Publishing changes
 
-Deploy a reviewed checkout and run `hr-skills publish` with a server configuration that maps the `engineering` catalog to this repository's `engineering/` directory. Publishing updates the versioned catalog without rebuilding or restarting the server.
+Push reviewed changes to `main`. The Lightsail server checks this branch approximately every minute and runs `hr-skills publish` for each new commit it observes. No manual copy, server rebuild, restart, or client token change is required.
 
-Pushing to this repository does not automatically update the hosted MCP service; no deployment pipeline is configured yet. See the [server README](https://github.com/cymkd-simakovicveljko/hr-skills#readme) for publishing and client setup instructions.
+The publisher uses a repository-only, read-only GitHub deploy key. Failed fetches or invalid catalogs leave the last successfully published catalog available; the timer retries on its next run. Only the latest observed commit is published, so intermediate commits between checks may be skipped.
+
+Publishing makes new content available through MCP. Agents still need to call `list_skills` and load the new revision; an already-loaded skill in a conversation does not update itself. Old revision-pinned URIs remain readable.
+
+For an immediate update or troubleshooting, run on Lightsail:
+
+```bash
+sudo systemctl start hr-skills-publish.service
+sudo systemctl status hr-skills-publish.timer
+sudo journalctl -u hr-skills-publish.service -n 30 --no-pager
+sudo cat /var/lib/hr-skills-catalog/published-commit
+```
+
+The final command prints the last successfully published Git commit. The [server repository](https://github.com/cymkd-simakovicveljko/hr-skills#readme) owns the publisher script, systemd units, and operational instructions.
 
 Only include content intended for distribution. The publisher includes every file beneath a skill directory, including hidden files except `.git`; keep credentials and private working files outside those directories.
