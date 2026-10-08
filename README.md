@@ -9,7 +9,7 @@ Skill content served by [hr-skills](https://github.com/cymkd-simakovicveljko/hr-
 
 ## Publishing changes
 
-Push reviewed changes to `main`. The Lightsail server checks this branch approximately every minute and runs `hr-skills publish` for each new commit it observes. No manual copy, server rebuild, restart, or client token change is required.
+Push reviewed changes to `main`. The Lightsail server checks this branch approximately every 15 minutes, with an initial check one minute after boot, and runs `hr-skills publish` for each new commit it observes. No manual copy, server rebuild, restart, or client token change is required.
 
 The publisher uses a repository-only, read-only GitHub deploy key. Failed fetches or invalid catalogs leave the last successfully published catalog available; the timer retries on its next run. Only the latest observed commit is published, so intermediate commits between checks may be skipped.
 
