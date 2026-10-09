@@ -7,6 +7,11 @@ Skill content served by [hr-skills](https://github.com/cymkd-simakovicveljko/hr-
 - `engineering/` — engineering skills.
 - `engineering/architecture/ousterhout-principle-structure/SKILL.md` — module structure and information-hiding guidance.
 - `engineering/plan/grill-me/SKILL.md` — Matt Pocock's planning interview, with the underlying `grilling` instructions inlined for MCP use. Upstream revision and adaptation are recorded in its frontmatter; the MIT license is included alongside it.
+- `engineering/review/blast-radius/SKILL.md` — pstack change-safety review with executable proof and host-supported independent reviewers.
+- `engineering/verify/tdd/SKILL.md` — pstack's focused failing-before, passing-after bug-fix workflow.
+- `engineering/verify/benchmark-checklist/SKILL.md` — pstack performance-claim verification, with its rationale bundled as an MCP-readable reference.
+
+The pstack imports preserve Lauren Tan's MIT license and pin the upstream revision in each skill's frontmatter. Adaptations are recorded there too. They are explicit-use skills; the catalog does not install Cursor plugins, model routing, or the full `poteto-mode` workflow.
 
 ## Publishing changes
 
