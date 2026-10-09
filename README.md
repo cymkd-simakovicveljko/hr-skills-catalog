@@ -6,6 +6,7 @@ Skill content served by [hr-skills](https://github.com/cymkd-simakovicveljko/hr-
 
 - `engineering/` — engineering skills.
 - `engineering/architecture/ousterhout-principle-structure/SKILL.md` — module structure and information-hiding guidance.
+- `engineering/plan/grill-me/SKILL.md` — Matt Pocock's planning interview, with the underlying `grilling` instructions inlined for MCP use. Upstream revision and adaptation are recorded in its frontmatter; the MIT license is included alongside it.
 
 ## Publishing changes
 
