@@ -1,14 +1,13 @@
 ---
 name: benchmark-checklist
 description: "Vet a perf measurement (limiter, tuning, limits, errors, repeatability, relevance, and whether the work happened) before you report or act on it. Use when you run a benchmark or report a speedup or regression you measured."
-disable-model-invocation: true
 license: MIT
 metadata:
   author: Lauren Tan
   source: https://github.com/cursor/plugins/tree/ccb5507cec1546dc88135c1139c811e6c59115ba/pstack
   revision: ccb5507cec1546dc88135c1139c811e6c59115ba
   upstream-files: pstack/skills/benchmark-checklist/SKILL.md, pstack/skills/principle-explain-the-number/SKILL.md
-  adaptation: Bundled the rationale as an MCP resource; made tool examples platform-aware; removed poteto-mode workflow references.
+  adaptation: Bundled the rationale as an MCP resource; made tool examples platform-aware; removed poteto-mode workflow references; enabled model invocation for performance measurements.
 ---
 
 # Benchmark checklist

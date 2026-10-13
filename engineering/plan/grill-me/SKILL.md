@@ -1,14 +1,13 @@
 ---
 name: grill-me
-description: A relentless interview to sharpen a plan or design.
-disable-model-invocation: true
+description: "Interview to resolve material requirements or design decisions that remain unclear after repository inspection, or when the user asks to sharpen a plan."
 license: MIT
 metadata:
   author: Matt Pocock
   source: https://github.com/mattpocock/skills
   revision: b0618bc436ad893b3c5e84e55fba86586d34a404
   upstream-files: skills/productivity/grill-me/SKILL.md, skills/productivity/grilling/SKILL.md
-  adaptation: Inlined grilling instructions to remove the local Skill tool dependency.
+  adaptation: Inlined grilling instructions to remove the local Skill tool dependency; enabled model invocation for unresolved requirements and design decisions.
 ---
 
 Interview the user relentlessly until you reach a shared understanding. Map this as a **design tree**: every decision branches into the decisions that hang off it.

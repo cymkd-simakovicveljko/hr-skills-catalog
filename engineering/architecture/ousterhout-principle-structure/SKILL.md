@@ -1,7 +1,6 @@
 ---
 name: ousterhout-principle-structure
-description: Assess module depth, information hiding and structural complexity; recommend the smallest evidence-backed improvement.
-disable-model-invocation: true
+description: "Use when assessing module boundaries, information hiding, or structural complexity; recommend the smallest evidence-backed improvement."
 license: MIT
 argument-hint: "[path or subsystem] [review | proposal | implement]"
 ---

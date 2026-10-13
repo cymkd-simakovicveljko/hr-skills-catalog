@@ -1,14 +1,13 @@
 ---
 name: blast-radius
 description: "Find what a change could break somewhere else before it ships, beyond the diff, and prove the one fact it's safe because of by running real code instead of writing it up. Use for 'blast radius of X', 'what could this break', or reviewing a small diff you don't trust."
-disable-model-invocation: true
 license: MIT
 metadata:
   author: Lauren Tan
   source: https://github.com/cursor/plugins/tree/ccb5507cec1546dc88135c1139c811e6c59115ba/pstack
   revision: ccb5507cec1546dc88135c1139c811e6c59115ba
   upstream-files: pstack/skills/blast-radius/SKILL.md
-  adaptation: Inlined history and reporting guidance; replaced companion-skill calls with explicit host-supported review instructions.
+  adaptation: Inlined history and reporting guidance; replaced companion-skill calls with explicit host-supported review instructions; enabled model invocation for applicable change reviews.
 ---
 
 # Blast radius

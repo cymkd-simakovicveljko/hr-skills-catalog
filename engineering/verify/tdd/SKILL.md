@@ -1,14 +1,13 @@
 ---
 name: tdd
-description: "Use only when the user explicitly asks for TDD, a failing test, or a regression test, OR when the bug has an obvious cheap local test target. Skip when the test path is unclear, expensive, integration-heavy, or not requested."
-disable-model-invocation: true
+description: "Use when the user requests TDD, a failing test, or a regression test, or when a bug has an obvious cheap local test target. Prefer the closest useful executable check when a new test would require disproportionate setup."
 license: MIT
 metadata:
   author: Lauren Tan
   source: https://github.com/cursor/plugins/tree/ccb5507cec1546dc88135c1139c811e6c59115ba/pstack
   revision: ccb5507cec1546dc88135c1139c811e6c59115ba
   upstream-files: pstack/skills/tdd/SKILL.md
-  adaptation: Added provenance metadata; upstream instructions unchanged.
+  adaptation: Added provenance metadata; enabled model invocation for requested test-first work or cheap local bug regressions; clarified the description while retaining the focused bug-fix procedure.
 ---
 
 # TDD Bug Fix
