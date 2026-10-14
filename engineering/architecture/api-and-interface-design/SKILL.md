@@ -24,6 +24,10 @@ Design stable, well-documented interfaces that are hard to misuse. Good interfac
 - Establishing database schema that informs API shape
 - Changing existing public interfaces
 
+## Structural design before approval
+
+Apply the **Conditional structural design** rule in `using-agent-skills` before requesting interface-design approval; load that router through MCP from the same catalog revision if needed. When the rule applies, load `ousterhout-principle-structure` from that revision and complete its design assessment in the existing interface design, spec or plan. Ownership and required caller knowledge matter here, not just endpoint signatures. Adding an endpoint within an established design does not by itself trigger the assessment. Reference unchanged approved evidence instead of repeating it.
+
 ## Core Principles
 
 ### Hyrum's Law

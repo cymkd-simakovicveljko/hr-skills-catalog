@@ -59,9 +59,16 @@ Inspect the request and relevant repository evidence first. Route by the work ac
 
 Together with this router, these are all 25 upstream skills. Do not run all 25 for every task. A small, clear feature can enter at approved implementation; a bug starts with diagnosis; a read-only review stops with findings; a docs-only correction does not need build, release or telemetry work.
 
+### Conditional structural design
+
+Before requesting approval of a capability map, spec, interface design or plan, load `ousterhout-principle-structure` when the proposal creates, splits or merges modules, moves ownership of policy or state, or materially changes what callers must know or coordinate (such as sequencing, configuration, retries or failure handling). This rule applies to single-capability work too.
+
+Use that skill's **Design assessment (proposal mode)** procedure and record its result in the existing design artifact for the existing human approval gate. Reuse an approved assessment while the structural decisions and their supporting assumptions remain unchanged; assess only affected decisions when they change. A new endpoint, additional files or an internal fix within an established boundary is not by itself a trigger. Missing required guidance pauses the dependent approval step under the catalog-availability rule above.
+
+For a review of existing structural complexity, load the same skill in review mode; a review does not authorize redesign or implementation.
+
 ### Optional supplements, not competing defaults
 
-- `ousterhout-principle-structure`: deepen module-boundary and information-hiding analysis when structural complexity is the actual problem.
 - `blast-radius`: deepen caller, persisted-state, wire-format or runtime-ordering analysis when a change needs an impact proof.
 - `benchmark-checklist`: validate a measurement or speedup/regression claim alongside the performance procedure.
 - `grill-me`: Matt Pocock's interview alternative, **explicit user selection only**. Default unresolved-requirements routing is `interview-me`.

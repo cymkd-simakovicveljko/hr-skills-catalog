@@ -1,6 +1,6 @@
 ---
 name: ousterhout-principle-structure
-description: "Use when assessing module boundaries, information hiding, or structural complexity; recommend the smallest evidence-backed improvement."
+description: "Use when proposing or assessing module boundaries, policy/state ownership, caller obligations, or structural complexity; recommend the smallest evidence-backed design or improvement."
 license: MIT
 argument-hint: "[path or subsystem] [review | proposal | implement]"
 ---
@@ -17,7 +17,7 @@ Make callers know less and make ownership discoverable to maintainers. Optimize 
 Default to a **read-only review** of the named path or subsystem. If no scope is supplied, use the current conversation's explicit architectural target; if none exists, ask which area to review. Resolve the actual code path from the repository rather than assuming the user's spelling is exact.
 
 - **review:** inspect and report in chat; no edits, report files or generated diagrams unless requested.
-- **proposal:** write a handoff only when requested, using the requested destination or existing repository convention. Preserve findings, evidence, uncertainties, priorities, safety constraints and completion criteria. This mode does not authorize implementation.
+- **proposal:** assess a proposed design when requested directly or required by the active spec, interface-design or planning workflow. Use **Design assessment (proposal mode)** below. Record it in that workflow's existing artifact; write a separate handoff only when requested, using the requested destination or existing repository convention. This mode does not authorize implementation.
 - **implement:** change only the explicitly assigned behavior or structural slice. A broad review invocation is not permission for a package-wide refactor. If no slice is assigned, first deliver a bounded recommendation.
 
 Follow the repository's instructions, documented requirements, design decisions and actual framework constraints. Distinguish current requirements, proposed changes and historical evidence. Inspect local changes before modifying files; preserve unrelated work.
@@ -37,7 +37,7 @@ Use these terms consistently when explaining a finding:
 - **Leverage:** difficult behavior implemented once and reused by real callers.
 - **Locality:** related policy, changes and verification concentrated under one owner.
 
-## Avoid When
+## Avoid unnecessary structural changes
 
 - The task is a flat, obvious tool or pipeline with little hidden machinery; preserve its direct flow.
 - The task is a tiny local fix with no interface or ownership consequence; make the local fix.
@@ -58,6 +58,21 @@ The interface includes more than signatures: ordering, invariants, failure modes
 | Changes remain local | One policy change spreads across callers |
 
 A large cohesive implementation can be deep. A tiny adapter can be necessary. Internal helper seams do not all belong in the external interface.
+
+## Design assessment (proposal mode)
+
+For pre-implementation design, use this procedure instead of the code-review procedure and review report below. The workflow router owns the conditional trigger; this section owns the assessment. Stay within the requested design scope and existing approval gate.
+
+Inspect relevant requirements, existing owners, contracts and constraints first. For existing behavior, trace actual callers and implementation paths as in the review procedure. For new modules, use a concrete proposed caller example grounded in the requirements and label unverified assumptions; do not invent code locations, existing callers or executed checks.
+
+For each materially affected module, record a compact paragraph or table covering:
+
+1. **Outcome and ownership:** the meaningful outcome a caller requests and the module that owns its difficult policy, state or representation. Prefer an existing owner when it fits.
+2. **Caller knowledge:** what the module hides and what callers must still supply, understand or coordinate, including relevant failure and recovery obligations. For a changed contract, compare before and after.
+3. **Change locality:** trace one plausible policy change through the affected owners and callers. Distinguish required cross-boundary adaptation from knowledge unnecessarily repeated across modules.
+4. **Safety and proof:** the invariants and compatibility requirements that must survive, any unresolved design assumptions, and the smallest contract check that would expose a broken design. A proposed check is not an executed result.
+
+Complete when every affected structural decision has this evidence and a reason to retain or change the design. Keeping the existing design is valid; module count, file size and additional layers are not goals. Record the assessment in the current capability map, spec, interface design or plan, rather than creating a separate report. Reuse unchanged approved evidence and reassess decisions affected by changed assumptions. Return unresolved consequential choices to the existing human approval gate; do not treat the assessment as approval or permission to implement.
 
 ## Review procedure
 
@@ -141,7 +156,7 @@ Lead with an honest verdict. Use this structure, sized to the scope:
 
 Label source-derived behavioral uncertainty **[INFERENCE]**. Do not invent numeric quality scores, runtime results or production-readiness claims. Prefer code references and a small before/after dependency sketch over generic architecture advice. Recommend no change when the evidence supports it.
 
-For a requested proposal, also include the reviewed revision and local-change caveats, relevant references, requirements versus proposals, goals, non-goals, compatibility requirements, per-slice completion criteria and a copyable next-agent assignment. Link existing policy rather than cloning an entire repository instruction set. A handoff records an executable next step, not implicit approval of every suggested change.
+For a separately requested implementation handoff, also include the reviewed revision and local-change caveats, relevant references, requirements versus proposals, goals, non-goals, compatibility requirements, per-slice completion criteria and a copyable next-agent assignment. Link existing policy rather than cloning an entire repository instruction set. A handoff records an executable next step, not implicit approval of every suggested change.
 
 ## Implementation and verification
 

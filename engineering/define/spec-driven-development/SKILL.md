@@ -44,6 +44,8 @@ SPECIFY ──→ PLAN ──→ TASKS ──→ IMPLEMENT
  reviews    reviews  reviews    reviews
 ```
 
+Before requesting capability-map or spec approval, apply the **Conditional structural design** rule in `using-agent-skills`; load that router from the same catalog revision if it is not already loaded. When the rule applies, load `ousterhout-principle-structure` and complete its design assessment in the map or spec before presenting it for approval. A single capability skips Phase 0, not this conditional assessment. Reference unchanged approved evidence rather than repeating it.
+
 ### Phase 0: Scope Check
 
 Most requests describe one capability. If this one does, skip this phase and go straight to Specify — Phase 0 exists for the exception, not the rule, and it puts no hierarchy on single-capability features.

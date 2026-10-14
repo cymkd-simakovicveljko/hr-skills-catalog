@@ -4,7 +4,7 @@ Skill content served by [hr-skills](https://github.com/cymkd-simakovicveljko/hr-
 
 ## Catalog layout
 
-The catalog contains **all 25 Addy Osmani skills plus five optional supplements**. Skills live under `engineering/<area>/<name>/SKILL.md`; each directory owns its bundled resources.
+The catalog contains **all 25 Addy Osmani skills plus five supplements**. Skills live under `engineering/<area>/<name>/SKILL.md`; each directory owns its bundled resources.
 
 | Area | Osmani skills |
 | --- | --- |
@@ -21,6 +21,8 @@ The catalog contains **all 25 Addy Osmani skills plus five optional supplements*
 The imports adapt [`agent-skills` at `1be8e34187e34647bb83adc3a1323b26ae6f6abe`](https://github.com/addyosmani/agent-skills/tree/1be8e34187e34647bb83adc3a1323b26ae6f6abe). Every skill includes the upstream MIT license, source revision and adaptation notes. The workflow preserves its lifecycle procedures while replacing local-plugin assumptions with MCP loading, qualifying project-specific thresholds, and retaining human approval boundaries.
 
 Five existing skills remain available: `architecture/ousterhout-principle-structure`, `review/blast-radius`, `verify/benchmark-checklist`, `plan/grill-me`, and `verify/tdd`. The first three are risk-specific supplements. **`grill-me` and `tdd` are explicit-use alternatives**, not competing automatic routes: default interviewing and test-first work use Osmani's `interview-me` and `test-driven-development`. Matt Pocock's and Lauren Tan's imports retain their own pinned provenance, adaptation notes and MIT licenses; this does not install pstack's full `poteto-mode`.
+
+Ousterhout is required when the router's [conditional structural design rule](engineering/workflow/using-agent-skills/SKILL.md#conditional-structural-design) applies. Its assessment stays in the existing design artifact and approval flow; it is not a separate architecture phase.
 
 ### Complete lifecycle modes and resources
 

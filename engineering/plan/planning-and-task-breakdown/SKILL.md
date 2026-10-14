@@ -43,6 +43,8 @@ Before writing any code, operate in read-only mode:
 - Map dependencies between components
 - Note risks and unknowns
 
+Apply the **Conditional structural design** rule in `using-agent-skills` to the plan's architecture decisions; load that router from the same catalog revision if needed. Reference the approved assessment in **Architecture Decisions** when its decisions and supporting assumptions still hold. If planning introduces or changes a qualifying structural decision, load `ousterhout-principle-structure` and complete its design assessment for the affected decisions before requesting plan approval. A change to an approved spec also returns to that spec's approval gate; planning does not silently override it.
+
 **Do NOT write code during planning.** The output is a plan document at the project-approved location (upstream default `tasks/plan.md`) and a task list recorded in the approved task-list target (upstream default `tasks/todo.md`), not implementation.
 
 ### Step 2: Identify the Dependency Graph
