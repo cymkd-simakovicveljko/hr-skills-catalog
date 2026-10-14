@@ -4,29 +4,48 @@ Skill content served by [hr-skills](https://github.com/cymkd-simakovicveljko/hr-
 
 ## Catalog layout
 
-- `engineering/` — engineering skills.
-- `engineering/workflow/using-agent-skills/SKILL.md` — Addy Osmani's SDLC entry point, adapted to discover and load this catalog's procedures through MCP.
-- `engineering/architecture/ousterhout-principle-structure/SKILL.md` — module structure and information-hiding guidance.
-- `engineering/plan/grill-me/SKILL.md` — Matt Pocock's planning interview, with the underlying `grilling` instructions inlined for MCP use. Upstream revision and adaptation are recorded in its frontmatter; the MIT license is included alongside it.
-- `engineering/review/blast-radius/SKILL.md` — pstack change-safety review with executable proof and host-supported independent reviewers.
-- `engineering/verify/tdd/SKILL.md` — pstack's focused failing-before, passing-after bug-fix workflow.
-- `engineering/verify/benchmark-checklist/SKILL.md` — pstack performance-claim verification, with its rationale bundled as an MCP-readable reference.
-- `engineering/verify/debugging-and-error-recovery/SKILL.md` — reproduce failures, isolate root causes, and verify focused fixes.
-- `engineering/review/security-and-hardening/SKILL.md` — evidence-based security review, with scoped hardening patterns bundled for MCP delivery.
-- `engineering/ship/deprecation-and-migration/SKILL.md` — consumer migration, safe database cutover, recovery, and removal of obsolete paths.
-- `engineering/ship/shipping-and-launch/SKILL.md` — release readiness, controlled rollout, monitoring, and authorized recovery.
+The catalog contains **all 25 Addy Osmani skills plus five optional supplements**. Skills live under `engineering/<area>/<name>/SKILL.md`; each directory owns its bundled resources.
 
-The pstack imports preserve Lauren Tan's MIT license and pin the upstream revision in each skill's frontmatter. Adaptations are recorded there too. They support model invocation for their stated task triggers; the catalog does not install Cursor plugins, model routing, or the full `poteto-mode` workflow.
+| Area | Osmani skills |
+| --- | --- |
+| `workflow` | `using-agent-skills` |
+| `define` | `interview-me`, `idea-refine`, `spec-driven-development`, `constraint-driven-development` |
+| `plan` | `planning-and-task-breakdown` |
+| `build` | `incremental-implementation`, `context-engineering`, `source-driven-development`, `doubt-driven-development`, `frontend-ui-engineering` |
+| `architecture` | `api-and-interface-design` |
+| `verify` | `test-driven-development`, `browser-testing-with-devtools`, `debugging-and-error-recovery` |
+| `review` | `code-review-and-quality`, `code-simplification`, `performance-optimization`, `security-and-hardening` |
+| `ship` | `git-workflow-and-versioning`, `ci-cd-and-automation`, `documentation-and-adrs`, `deprecation-and-migration`, `shipping-and-launch` |
+| `operate` | `observability-and-instrumentation` |
 
-The five Addy Osmani imports are adaptations of [`agent-skills` at `1be8e34187e34647bb83adc3a1323b26ae6f6abe`](https://github.com/addyosmani/agent-skills/tree/1be8e34187e34647bb83adc3a1323b26ae6f6abe). Each includes the upstream MIT license, source revision, and adaptation notes. The entry point routes to this catalog's nine procedures rather than assuming the full upstream pack is installed. The imports are self-contained for MCP delivery; they do not install the upstream plugin or authorize production actions. Repository-specific policies replace upstream blanket thresholds, and migration guidance distinguishes code rollback from data recovery.
+The imports adapt [`agent-skills` at `1be8e34187e34647bb83adc3a1323b26ae6f6abe`](https://github.com/addyosmani/agent-skills/tree/1be8e34187e34647bb83adc3a1323b26ae6f6abe). Every skill includes the upstream MIT license, source revision and adaptation notes. The workflow preserves its lifecycle procedures while replacing local-plugin assumptions with MCP loading, qualifying project-specific thresholds, and retaining human approval boundaries.
+
+Five existing skills remain available: `architecture/ousterhout-principle-structure`, `review/blast-radius`, `verify/benchmark-checklist`, `plan/grill-me`, and `verify/tdd`. The first three are risk-specific supplements. **`grill-me` and `tdd` are explicit-use alternatives**, not competing automatic routes: default interviewing and test-first work use Osmani's `interview-me` and `test-driven-development`. Matt Pocock's and Lauren Tan's imports retain their own pinned provenance, adaptation notes and MIT licenses; this does not install pstack's full `poteto-mode`.
+
+### Complete lifecycle modes and resources
+
+The router bundles nine modes under `references/commands/`: **spec, plan, build, test, review, code-simplify, constraints, ship, webperf**. Ask naturally: “run the plan workflow,” “run build auto,” “check constraints,” or “run a deep webperf audit.”
+
+- `build` handles one approved task by default; `auto`/`all` executes the approved full plan with verification and stop conditions. Neither grants implicit commit or deployment permission.
+- `constraints` retains definition, check, guard and ratchet modes. Thresholds and policy changes need the responsible owner's approval.
+- `ship` combines code, security and test review, then produces readiness and recovery decisions. Independent parallel review uses actual supported host workers; missing independence is disclosed and required gates stay blocked.
+- `webperf` distinguishes source-only potential impact from measured lab, field and trace evidence.
+
+The router also bundles all seven shared references (definition of done, testing, accessibility, performance, security, observability, orchestration) and four reviewer perspectives (code reviewer, security auditor, test engineer, web performance auditor). Leaf-specific idea-refinement, floor-guard, optimization and hardening resources remain with their skills.
+
+These are **MCP resources, not installed native slash commands or agent types**. The catalog does not install upstream plugins, hooks, caches, browser servers or global configuration. Supporting shell snippets are reference material: loading them does not execute them. Retrieve files through resource URIs returned by `load_skill`, not assumed local paths.
 
 ## Agent entry experience
 
 The shared path is **client bootstrap → `list_skills` → `using-agent-skills` → the relevant procedure**. The [server onboarding guide](https://github.com/cymkd-simakovicveljko/hr-skills#bootstrap-the-company-workflow) contains the bootstrap to add to each client's always-loaded instructions. Connecting MCP alone does not install or apply it.
 
-The router and its nine procedures allow model invocation. Loading them is not permission to expand scope, change production, push, publish, or deploy. The router respects any future explicit-use restriction and retains revision-pinned skill URIs for each task. It loads procedures and supporting resources only when relevant; verification results and approvals still come from the real tools, CI, and people.
+All 25 Osmani skills and three risk-specific supplements allow model invocation; the two alternatives require explicit selection. Loading a skill is not permission to expand scope, send private data to another model provider, change production, commit, push, publish or deploy. The router retains one catalog revision per task and loads procedures and resources only when relevant. Verification results and approvals still come from actual tools, CI and people—not from loading instructions.
 
 Keep routing policy in the router, project commands and constraints in the repository, and only discovery/loading in the client bootstrap. Do not copy the whole workflow into client configuration. A missing router or unavailable MCP service must be reported; agents may continue independent work under existing instructions, but must not claim the shared workflow ran or bypass a dependent safety gate.
+
+## Catalog checks
+
+Run `node tests/floor-guard.test.mjs` with Node.js and Git installed. It exercises the embedded floor guard in a temporary repository: secret-safe diagnostics, policy-change detection, and numeric tightening/loosening. The check cleans up its fixture and lives outside the published skill bundles.
 
 ## Publishing changes
 

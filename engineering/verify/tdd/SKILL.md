@@ -1,13 +1,14 @@
 ---
 name: tdd
-description: "Use when the user requests TDD, a failing test, or a regression test, or when a bug has an obvious cheap local test target. Prefer the closest useful executable check when a new test would require disproportionate setup."
+description: "Use only when the user explicitly selects pstack's tdd focused bug-regression procedure as an alternative to Osmani test-driven-development."
+disable-model-invocation: true
 license: MIT
 metadata:
   author: Lauren Tan
   source: https://github.com/cursor/plugins/tree/ccb5507cec1546dc88135c1139c811e6c59115ba/pstack
   revision: ccb5507cec1546dc88135c1139c811e6c59115ba
   upstream-files: pstack/skills/tdd/SKILL.md
-  adaptation: Added provenance metadata; enabled model invocation for requested test-first work or cheap local bug regressions; clarified the description while retaining the focused bug-fix procedure.
+  adaptation: Added provenance metadata; retained the focused bug-fix procedure as an explicit-use alternative to the default Osmani test-driven-development skill.
 ---
 
 # TDD Bug Fix
