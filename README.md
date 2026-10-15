@@ -39,7 +39,7 @@ These are **MCP resources, not installed native slash commands or agent types**.
 
 ## Agent entry experience
 
-The shared path is **client bootstrap → `list_skills` → `using-agent-skills` → the relevant procedure**. The [server onboarding guide](https://github.com/cymkd-simakovicveljko/hr-skills#bootstrap-the-company-workflow) contains the bootstrap to add to each client's always-loaded instructions. Connecting MCP alone does not install or apply it.
+The shared path is **client bootstrap → `list_skills` → `using-agent-skills` → the relevant procedure**. The [OMP setup guide](https://github.com/cymkd-simakovicveljko/hr-skills/blob/main/QUICKSTART.md) covers connection, the always-loaded bootstrap and verification. Connecting MCP alone does not install or apply the workflow.
 
 All 25 Osmani skills and three risk-specific supplements allow model invocation; the two alternatives require explicit selection. Loading a skill is not permission to expand scope, send private data to another model provider, change production, commit, push, publish or deploy. The router retains one catalog revision per task and loads procedures and resources only when relevant. Verification results and approvals still come from actual tools, CI and people—not from loading instructions.
 
