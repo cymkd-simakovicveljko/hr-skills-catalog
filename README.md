@@ -4,7 +4,7 @@ Skill content served by [hr-skills](https://github.com/cymkd-simakovicveljko/hr-
 
 ## Catalog layout
 
-The catalog contains **all 25 Addy Osmani skills plus five supplements**. Skills live under `engineering/<area>/<name>/SKILL.md`; each directory owns its bundled resources.
+The catalog contains **all 25 Addy Osmani skills plus six supplements**. Skills live under `engineering/<area>/<name>/SKILL.md`; each directory owns its bundled resources.
 
 | Area | Osmani skills |
 | --- | --- |
@@ -21,6 +21,8 @@ The catalog contains **all 25 Addy Osmani skills plus five supplements**. Skills
 The imports adapt [`agent-skills` at `1be8e34187e34647bb83adc3a1323b26ae6f6abe`](https://github.com/addyosmani/agent-skills/tree/1be8e34187e34647bb83adc3a1323b26ae6f6abe). Every skill includes the upstream MIT license, source revision and adaptation notes. The workflow preserves its lifecycle procedures while replacing local-plugin assumptions with MCP loading, qualifying project-specific thresholds, and retaining human approval boundaries.
 
 Five existing skills remain available: `architecture/ousterhout-principle-structure`, `review/blast-radius`, `verify/benchmark-checklist`, `plan/grill-me`, and `verify/tdd`. The first three are risk-specific supplements. **`grill-me` and `tdd` are explicit-use alternatives**, not competing automatic routes: default interviewing and test-first work use Osmani's `interview-me` and `test-driven-development`. Matt Pocock's and Lauren Tan's imports retain their own pinned provenance, adaptation notes and MIT licenses; this does not install pstack's full `poteto-mode`.
+
+The explicit-use tone skill `tone/clear-cut` provides concise explanations that preserve reasoning, uncertainty, and user-owned decisions. It activates only when selected by the user; loading it does not automatically change the agent's voice.
 
 Ousterhout is required when the router's [conditional structural design rule](engineering/workflow/using-agent-skills/SKILL.md#conditional-structural-design) applies. Its assessment stays in the existing design artifact and approval flow; it is not a separate architecture phase.
 
@@ -41,7 +43,7 @@ These are **MCP resources, not installed native slash commands or agent types**.
 
 The shared path is **client bootstrap → `list_skills` → `using-agent-skills` → the relevant procedure**. The [OMP setup guide](https://github.com/cymkd-simakovicveljko/hr-skills/blob/main/QUICKSTART.md) covers connection, the always-loaded bootstrap and verification. Connecting MCP alone does not install or apply the workflow.
 
-All 25 Osmani skills and three risk-specific supplements allow model invocation; the two alternatives require explicit selection. Loading a skill is not permission to expand scope, send private data to another model provider, change production, commit, push, publish or deploy. The router retains one catalog revision per task and loads procedures and resources only when relevant. Verification results and approvals still come from actual tools, CI and people—not from loading instructions.
+All 25 Osmani skills and three risk-specific supplements allow model invocation; the two alternatives and `clear-cut` require explicit selection. Loading a skill is not permission to expand scope, send private data to another model provider, change production, commit, push, publish or deploy. The router retains one catalog revision per task and loads procedures and resources only when relevant. Verification results and approvals still come from actual tools, CI and people—not from loading instructions.
 
 Keep routing policy in the router, project commands and constraints in the repository, and only discovery/loading in the client bootstrap. Do not copy the whole workflow into client configuration. A missing router or unavailable MCP service must be reported; agents may continue independent work under existing instructions, but must not claim the shared workflow ran or bypass a dependent safety gate.
 
